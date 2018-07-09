@@ -20,7 +20,7 @@ This sample project uses the WebRTC APIs to stream audio from the browser to the
     python -m SimpleHTTPServer
     ```
 
-1. [Download `ngrok`](https://ngrok.com/download) to serve your local server over HTTPS. Browsers require the website to ber served over HTTPS if you want to access the microphone. Once you unzip the ngrok file, we recommend moving it to `/usr/ocal/bin` so you have global access to it (ie, `mv ngrok /usr/local/bin/`). Once ngrok is installed, run:
+1. [Download `ngrok`](https://ngrok.com/download) to serve your local server over HTTPS. Browsers require the website to ber served over HTTPS if you want to access the microphone. Once you unzip the ngrok file, we recommend moving it to `/usr/local/bin` so you have global access to it (ie, `mv ngrok /usr/local/bin/`). Once ngrok is installed, run:
 
     ```
     # run this to start ngrok

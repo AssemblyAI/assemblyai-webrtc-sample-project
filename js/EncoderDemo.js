@@ -40,7 +40,14 @@ var microphone = undefined,     // on stream initialization
     processor = undefined;      // created on recording
 
 // Initialize stream
-navigator.getUserMedia({ audio: true },
+var constraints = {
+  audio: {
+    echoCancellation: false,
+    noiseSuppression: false,
+    autoGainControl: false,
+  }
+};
+navigator.getUserMedia(constraints,
   function(stream) {
     microphone = audioContext.createMediaStreamSource(stream);
     microphone.connect(input);
@@ -115,7 +122,7 @@ function startRecordingProcess() {
     command: 'start',
     process: 'separate',
     sampleRate: audioContext.sampleRate,
-    numChannels: 2
+    numChannels: 1
   });
   processor.onaudioprocess = function(event) {
     worker.postMessage({ command: 'record', buffers: getBuffers(event) });

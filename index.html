@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)https://higuma.github.io/wav-audio-encoder-js/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Assembly AI Real Time Transcription Demo</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/WavAudioEncoder.js"></script>
+    <script src="js/utils.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1><a href="https://assemblyai.com">Assembly AI</a> demo</h1>
+      <p>Realtime audio transcription</p>
+      <hr>
+      <div class="form-horizontal">
+        <div class="form-group">
+          <div class="col-sm-3">
+            <button id="record" class="btn btn-danger">RECORD</button>
+            <button id="cancel" class="btn btn-default hidden">CANCEL</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-3 control-label"><span id="recording" class="text-danger hidden"><strong>RECORDING</strong></span>&nbsp; <span id="time-display" class="hidden">00:00</span></div>
+        </div>
+      </div>
+      <div id="loader" class="loader hidden">
+        <div class="spinner"></div>
+      </div>
+      <div id="results" class="hidden">
+        <h3>Transcription</h3>
+        <div class="col-sm-1 no-padding">
+          <span>Status</span>
+        </div>
+        <div class="col-sm-3">
+          <span id="status">--</span>
+        </div><br/>
+        <div class="col-sm-1 no-padding">
+          <span>Confidence</span>
+        </div>
+        <div class="col-sm-3">
+          <span id="confidence">--</span>
+        </div><br/>
+        <div class="col-sm-1 no-padding">
+          <span>Text</span>
+        </div>
+        <div class="col-sm-3">
+          <span id="text">--</span>
+        </div>
+      </div>
+    </div>
+    <script src="js/EncoderDemo.js"></script>
+
+  </body>
+</html>

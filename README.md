@@ -5,7 +5,7 @@ This sample project uses the WebRTC APIs to stream audio from the browser to the
 ## Getting started
 
 1. Clone this repo
-1. Fill in your API Token on line 2 in `js/EncoderDemo.js`
+1. Fill in your API Token on line 2 in `js/demo.js`
 
     ```
     const API_TOKEN = "your-secret-api-token";

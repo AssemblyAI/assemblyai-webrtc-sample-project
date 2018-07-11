@@ -1,4 +1,6 @@
 (function( $ ) {
+  const API_TOKEN = "35f2294b909141b4b62a52b98adc59eb";
+
   var isRecording = false;
   var startTime = null;
   var updateTimeDisplayInterval = null;
@@ -13,7 +15,8 @@
   }
 
 	$(window).on('load', function () {
-    var assemblyai = new AssemblyAI("35f2294b909141b4b62a52b98adc59eb");
+    // Instantiate AssemblyAI object 
+    var assemblyai = new AssemblyAI(API_TOKEN);
 
     $('#record').click(function(){
       if (isRecording) {

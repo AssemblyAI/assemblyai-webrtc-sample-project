@@ -58,7 +58,6 @@ function uint8ToString(buf) {
 }
 
 function createWaveFileData(audioBuffer) {
-
     var frameLength = audioBuffer.length;
     var numberOfChannels = audioBuffer.numberOfChannels;
     var sampleRate = audioBuffer.sampleRate;
@@ -95,5 +94,6 @@ function createWaveFileData(audioBuffer) {
     writeAudioBuffer(audioBuffer, waveFileData, 44);
 
     return waveFileData;
-
 }
+
+export { uint8ToString, createWaveFileData };

@@ -1,6 +1,4 @@
-// manually rewritten from CoffeeScript output
-// (see dev-coffee branch for original source)
-importScripts('WavAudioEncoder.js');
+importScripts('Encoder.js');
 
 var buffers = undefined,
     encoder = undefined;

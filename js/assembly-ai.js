@@ -22,7 +22,14 @@ navigator.getUserMedia =
   navigator.msGetUserMedia;
 
 // Initialize stream
-navigator.getUserMedia({ audio: true },
+var constraints = {
+  audio: {
+    echoCancellation: false,
+    noiseSuppression: false,
+    autoGainControl: false,
+  }
+};
+navigator.getUserMedia(constraints,
   function(stream) {
     microphone = audioContext.createMediaStreamSource(stream);
     microphone.connect(input);
@@ -74,7 +81,7 @@ class AssemblyAI {
      command: 'start',
      process: 'separate',
      sampleRate: audioContext.sampleRate,
-     numChannels: 2
+     numChannels: 1
     });
     processor.onaudioprocess = function(event) {
      self.worker.postMessage({ command: 'record', buffers: self._getBuffers(event) });

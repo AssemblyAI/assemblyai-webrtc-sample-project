@@ -1,6 +1,6 @@
 # AssemblyAI Sample WebRTC Project
 
-This sample project uses the WebRTC APIs to stream audio from the browser to the AssemblyAI API for near real-time transcription.
+This sample project uses the [AssemblyAI WebRTC wrapper](https://github.com/AssemblyAI/assemblyai-webrtc-wrapper) to stream audio from the browser to the AssemblyAI API for near real-time speech-to-text.
 
 ## Getting started
 
@@ -20,17 +20,9 @@ This sample project uses the WebRTC APIs to stream audio from the browser to the
     python -m SimpleHTTPServer
     ```
 
-1. [Download `ngrok`](https://ngrok.com/download) to serve your local server over HTTPS. Browsers require the website to ber served over HTTPS if you want to access the microphone. Once you unzip the ngrok file, we recommend moving it to `/usr/local/bin` so you have global access to it (ie, `mv ngrok /usr/local/bin/`). Once ngrok is installed, run:
+1. Go to `http://localhost:8000` to visit your local server. Click "Allow" when the browser asks for permission to use your microphone.
 
-    ```
-    # run this to start ngrok
-    ngrok http 8000
-
-    # in the ngrok output, find the line that looks like
-    Forwarding          https://5b322173.ngrok.io -> localhost:8000
-    ```
-
-1. Go to `https://5b322173.ngrok.io` to visit your local server over HTTPS. Click "Allow" when the browser asks for permission to use your microphone.
+> **Note:** WebRTC requires your website to be served on `localhost` or over SSL in order to access the microphone.
 
 1. Click the red "RECORD" button and start talking!
 

@@ -34,3 +34,4 @@ This sample project uses the WebRTC APIs to stream audio from the browser to the
 
 1. Click the red "RECORD" button and start talking!
 
+Details about the AssemblyAI wrapper library can be found at [AssemblyAI Wrapper](https://github.com/AssemblyAI/assemblyai-webrtc-wrapper)

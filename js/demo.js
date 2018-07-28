@@ -1,5 +1,5 @@
 (function( $ ) {
-  const API_TOKEN = "35f2294b909141b4b62a52b98adc59eb";
+  const API_TOKEN = "9f05b1697edc4d7b98e9fb3f30575bd9";
 
   var isRecording = false;
   var startTime = null;
@@ -14,35 +14,40 @@
     }
   }
 
+  function transcriptionCallback(response) {
+    $('#loader').addClass('hidden');
+    console.log(response);
+
+    // UI
+    $('#status').text(response.status);
+    $('#confidence').text(response.confidence);
+    $('#text').text(response.text);
+    $('#results').removeClass('hidden');
+    $('#recording').addClass('hidden');
+  }
+
+  function uiCallback() {
+    // UI
+    startTime = null;
+    $("#record").html('RECORD');
+    $('#recording').addClass('hidden');
+    $('#time-display').addClass('hidden');
+    clearInterval(updateTimeDisplayInterval);
+
+    $('#loader').removeClass('hidden');
+    isRecording = false;
+  }
+
 	$(window).on('load', function () {
-    // Instantiate AssemblyAI object 
     var assemblyai = new AssemblyAI(API_TOKEN);
 
     $('#record').click(function(){
       if (isRecording) {
-        // UI
-        startTime = null;
-        $(this).html('RECORD');
-        $('#recording').addClass('hidden');
-        $('#time-display').addClass('hidden');
-        clearInterval(updateTimeDisplayInterval);
-
-        $('#loader').removeClass('hidden');
-        assemblyai.stopRecording(function(response){
-          $('#loader').addClass('hidden');
-          console.log(response);
-
-          // UI
-          $('#status').text(response.status);
-          $('#confidence').text(response.confidence);
-          $('#text').text(response.text);
-          $('#results').removeClass('hidden');
-          $('#recording').addClass('hidden');
-        });
-        isRecording = false;
+        uiCallback();
+        assemblyai.stopRecording(transcriptionCallback);
       } else {
 
-        assemblyai.startRecording();
+        assemblyai.startRecording(true, transcriptionCallback, uiCallback);
         isRecording = true;
 
         // UI
@@ -53,6 +58,10 @@
         $('#results').addClass('hidden');
         updateTimeDisplayInterval = setInterval(updateTimeDisplay, 200);
       }
+    });
+
+    $('#save').click(function(){
+      assemblyai.saveRecording();
     });
  	});
 

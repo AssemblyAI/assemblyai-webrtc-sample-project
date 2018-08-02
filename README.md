@@ -2,6 +2,8 @@
 
 This sample project uses the [AssemblyAI WebRTC wrapper](https://github.com/AssemblyAI/assemblyai-webrtc-wrapper) to stream audio from the browser to the AssemblyAI API for near real-time speech-to-text.
 
+**Only tested in Chrome and Firefox.**
+
 ## Getting started
 
 1. Clone this repo

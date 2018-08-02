@@ -26,3 +26,4 @@ This sample project uses the [AssemblyAI WebRTC wrapper](https://github.com/Asse
 
 1. Click the red "RECORD" button and start talking!
 
+Details about the AssemblyAI wrapper library can be found at [AssemblyAI Wrapper](https://github.com/AssemblyAI/assemblyai-webrtc-wrapper)
